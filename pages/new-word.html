@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#E5E5E5]">
+  <header class="py-6 px-4">
+      <h1>
+        <img src="../assets/logo-alura.svg" alt="Logo da Alura">
+      </h1>
+  </header>
+
+  <main class="px-4">
+
+    <label for="newWord" hidden>Adicionar nova palavra</label>
+    <textarea 
+        name="newWord" 
+        id="newWord"
+        placeholder="Digite uma palavra ou frase"
+        class="w-[343px] h-[250px] bg-transparent text-3xl text-[#0A3871] placeholder:text-[#0A3871] placeholder:text-3xl mt-14 focus:outline-0" 
+    ></textarea>
+
+    <span class="flex gap-2 text-xs justify-start items-center">
+        <img src="../assets/bi_exclamation-circle-fill.svg" alt="Circulo com exclamação">
+        Máx. de 8 letras
+    </span>
+    <div class="flex flex-col gap-6 mt-4">
+      <button class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl">
+        Salvar e começar
+      </button>
+      <button class="border border-[#0A3871] text-[#0A3871] w-[343px] h-[67px] rounded-3xl">
+        Cancelar
+      </button>
+    </div>
+    
+  </main>
+</body>
+</html>
