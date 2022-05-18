@@ -12,12 +12,20 @@
       </h1>
   </header>
 
-  <main class="px-4">
+  <main class="px-4 flex justify-center items-center flex-col">
 
-    <canvas id="drawForca" width="300" height="415"></canvas>
+    <canvas id="canvas" width="300" height="380"></canvas>
+
+    <span 
+      id="wrongLetters"
+      class="max-h-9 text-[#495057] text-2xl"
+    ></span>
 
     <div class="flex flex-col gap-6 mt-4">
-      <button class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl">
+      <button 
+        class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl"
+        onclick="setRandomWord()"
+      >
         Novo Jogo
       </button>
       <button class="border border-[#0A3871] text-[#0A3871] w-[343px] h-[67px] rounded-3xl">
