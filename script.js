@@ -150,6 +150,8 @@ body.addEventListener('keypress', function(e){
 })
 
 function desenhaTraços(){
+  body.focus();  
+
   let linhaInicial = (canvas.width - (34 * wordDrawn.length)+30) / 2;
     
   for(let i = 0; i < wordDrawn.length; i++){
