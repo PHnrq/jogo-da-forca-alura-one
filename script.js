@@ -1,5 +1,6 @@
 //Canvas config
 const body = document.querySelector('body');
+const input = document.querySelector('input');
 const canvas = document.getElementById('canvas');
 const spanWrongLetters = document.querySelector('#wrongLetters');
 
@@ -150,7 +151,7 @@ body.addEventListener('keypress', function(e){
 })
 
 function desenhaTraços(){
-  body.focus();  
+  input.focus();  
 
   let linhaInicial = (canvas.width - (34 * wordDrawn.length)+30) / 2;
     
