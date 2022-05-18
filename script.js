@@ -132,28 +132,34 @@ function drawRightLeg(){
     ctx.stroke();
 }
 
-body.addEventListener('keydown', function(e){
-    if ((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 96 && e.keyCode < 123) || e.keyCode == 8){
-        const key = e.key.toUpperCase();
+input.addEventListener('input', function(e){
 
-        if (letterTry.find(letter => letter == key)){
-            return;
-        } else {
-            letterTry.push(key);
-            currentLetters = key.toUpperCase();
-            desenhaTraços()
-            checkWrongLetters();
-        }
+    let arr = e.target.value.split('');
+    let lastLetter = arr[arr.length - 1];
+
+    if(letterTry.find(letter => letter == lastLetter)){
+        return;
+    }else{
+        letterTry.push(lastLetter);
+        currentLetters = lastLetter.toUpperCase();
+        console.log(letterTry);
+        console.log(currentLetters)
+        checkWrongLetters();
+        desenhaTraços();
     }
 
-   // ctx.fillText(wrongLetters.join(''),(canvas.width - (34 * wordDrawn.length)+30) / 2 , 410);
-   spanWrongLetters.innerHTML = wrongLetters.join('');
+    spanWrongLetters.innerHTML = wrongLetters.join('');
+})
+
+
+body.addEventListener('click', function(e){
+    input.focus();
 })
 
 function desenhaTraços(){
   input.focus();  
 
-  let linhaInicial = (canvas.width - (34 * wordDrawn.length)+30) / 2;
+  let linhaInicial = (canvas.width - (35 * wordDrawn.length)+30) / 2;
     
   for(let i = 0; i < wordDrawn.length; i++){
     ctx.fillRect(linhaInicial,370 , 24, 4); //Traços
