@@ -132,7 +132,7 @@ function drawRightLeg(){
     ctx.stroke();
 }
 
-body.addEventListener('keypress', function(e){
+body.addEventListener('keydown', function(e){
     if ((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 96 && e.keyCode < 123) || e.keyCode == 8){
         const key = e.key.toUpperCase();
 
