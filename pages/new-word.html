@@ -1,40 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#E5E5E5]">
-  <header class="py-6 px-4">
-      <h1>
-        <img src="../assets/logo-alura.svg" alt="Logo da Alura">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-[#E5E5E5]">
+    <header class="py-6 px-4">
+      <img src="../assets/logo-alura.svg" alt="Logo da Alura" />
+      <h1 class="absolute -top-10">
+        Jogo da Forca  
       </h1>
-  </header>
+    </header>
 
-  <main class="px-4">
+    <main class="flex justify-center items-center flex-col gap-4 px-4">
 
-    <label for="newWord" hidden>Adicionar nova palavra</label>
-    <textarea 
-        name="newWord" 
+      <label for="newWord" class="absolute -top-5">Adicionar nova palavra</label>
+      <input
+        name="newWord"
         id="newWord"
-        placeholder="Digite uma palavra ou frase"
-        class="w-[343px] h-[250px] bg-transparent text-3xl text-[#0A3871] placeholder:text-[#0A3871] placeholder:text-3xl mt-14 focus:outline-0" 
-    ></textarea>
+        placeholder="Digite uma palavra"
+        class="bg-transparent text-3xl text-[#0A3871] h-11 placeholder:text-[#0A3871] placeholder:text-2xl mt-14 focus:outline-0"
+      >
 
-    <span class="flex gap-2 text-xs justify-start items-center">
-        <img src="../assets/bi_exclamation-circle-fill.svg" alt="Circulo com exclamação">
-        Máx. de 8 letras
-    </span>
-    <div class="flex flex-col gap-6 mt-4">
-      <button class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl">
-        Salvar e começar
-      </button>
-      <button class="border border-[#0A3871] text-[#0A3871] w-[343px] h-[67px] rounded-3xl">
-        Cancelar
-      </button>
-    </div>
-    
-  </main>
-</body>
+      <label for="category" class="absolute -top-5">Adicionar nova palavra</label>
+      <input
+        name="category"
+        id="category"
+        placeholder="Digite a categoria"
+        class="bg-transparent text-3xl text-[#0A3871] placeholder:text-[#0A3871] placeholder:text-2xl mt-10 focus:outline-0 "
+      >
+
+      <div class="flex flex-col gap-6 mt-10">
+        <span class="flex gap-2 text-xs justify-start items-center mx-4">
+          <img src="../assets/bi_exclamation-circle-fill.svg" alt="Circulo com exclamação"/>
+
+          Máx. de 8 letras
+        </span>
+
+        <button class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl" onclick="addWord()">
+          Salvar e começar
+        </button>
+
+        <a 
+          href="../index.html"
+          class="border border-[#0A3871] text-[#0A3871] text-center w-[343px] py-5 rounded-3xl hover:cursor-pointer"
+        >
+          Cancelar
+        </a>
+      </div>
+      
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
 </html>
