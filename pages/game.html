@@ -14,20 +14,19 @@
         Jogo da Forca  
       </h1>
     </header>
-
+    
     <main class="px-4 flex justify-center items-center flex-col">
       <label for="showKeyboard" class="absolute -top-10">Digite as letras</label>
       <input id="showKeyboard" type="text" class="absolute -left-[110vw]" />
-
-      <span id="dica" class="text-3xl text-[#0A3871]"></span>
-
-      <p class="fixed right-10 top-10 text-xl text-[#0A3871]" id="score"></p>
+      
+      <span id="dica" class="text-3xl text-[#0A3871] -mt-8"></span>
+      <p class="text-xl text-[#0A3871]" id="score"></p>
 
       <canvas id="canvas" width="300" height="380"></canvas>
 
       <span id="wrongLetters" class="max-h-9 text-[#495057] text-2xl"></span>
 
-      <div class="flex flex-col gap-6 mt-4">
+      <div class="flex flex-col gap-3 mt-4">
         <button
           class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl"
           onclick="setRandomWord()"
@@ -45,18 +44,18 @@
 
       <div id="winnerModal" class="fixed z-10 left-0 top-0 w-screen h-screen bg-cyan-50/50 hidden">
 
-        <div class="flex flex-col bg-white mt-[15%] mx-auto max-w-prose p-10 rounded-3xl">
+        <div class="flex flex-col bg-white mt-[15%] mx-auto max-w-prose py-10 rounded-3xl">
           <h1 class="text-center text-[#0A3871] text-3xl">Parabéns!</h1>
           <p class="text-center text-[#0A3871] text-xl">Você acertou a palavra!</p>
           <button
             class="bg-[#0A3871] text-white w-[343px] h-[67px] rounded-3xl mx-auto mt-5"
             onclick="setRandomWord()"
           >
-            Novo Jogo
+            Continuar
           </button>
           <a
           href="../index.html"
-          class="border border-[#0A3871] text-[#0A3871] text-center w-[343px] py-5 rounded-3xl hover:cursor-pointer"
+          class="border border-[#0A3871] text-[#0A3871] text-center w-[343px] py-5 rounded-3xl mx-auto mt-5 hover:cursor-pointer"
         >
           Desistir
         </a>
@@ -66,7 +65,7 @@
 
       <div id="looseModal" class="fixed z-10 left-0 top-0 w-screen h-screen bg-cyan-50/50 hidden">
 
-        <div class="flex flex-col bg-white mt-[15%] mx-auto max-w-prose p-10 rounded-3xl">
+        <div class="flex flex-col bg-white mt-[15%] mx-auto max-w-prose rounded-3xl py-10">
           <h1 class="text-center text-[#0A3871] text-3xl">Game Over</h1>
           <p id="looserMsg" class="text-center text-[#0A3871] text-xl mt-1"></p>
           <button
