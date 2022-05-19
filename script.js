@@ -1,30 +1,3 @@
-//Canvas config
-const body = document.querySelector('body');
-const input = document.querySelector('input');
-const spanWrongLetters = document.querySelector('#wrongLetters');
-const spanDica = document.querySelector('#dica');
-const inputNewWord = document.querySelector('#newWord');
-const inputCategory = document.querySelector('#category');
-const winnerModal = document.querySelector('#winnerModal');
-const looseModal = document.querySelector('#looseModal');
-const looserMsg = document.querySelector('#looserMsg');
-const score = document.querySelector('#score');
-
-let wordDrawn = '';
-let letterTry = [];
-let wrongLetters = [];
-let rightLetters = 0;
-let erros = 0;
-let currentLetters = '';
-let updateScore = 0;
-
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-ctx.fillStyle = '#0A3871';
-ctx.strokeStyle = '#0A3871';
-ctx.lineWidth = 4;
-ctx.font =  "24px Inter";
-
 let wordsForGame = [
     {nome: 'Cachorro', categoria: 'Animal'},
     {nome: 'Gato', categoria: 'Animal'},
@@ -59,11 +32,39 @@ let wordsForGame = [
     {nome: 'Melancia', categoria: 'Fruta'},
     {nome: 'Melao', categoria: 'Fruta'}]
 
+const body = document.querySelector('body');
+const input = document.querySelector('input');
+const spanWrongLetters = document.querySelector('#wrongLetters');
+const spanDica = document.querySelector('#dica');
+const inputNewWord = document.querySelector('#newWord');
+const inputCategory = document.querySelector('#category');
+const winnerModal = document.querySelector('#winnerModal');
+const looseModal = document.querySelector('#looseModal');
+const looserMsg = document.querySelector('#looserMsg');
+const score = document.querySelector('#score');
+
+let wordDrawn = '';
+let letterTry = [];
+let wrongLetters = [];
+let rightLetters = 0;
+let erros = 0;
+let currentLetters = '';
+let updateScore = 0;
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#0A3871';
+ctx.strokeStyle = '#0A3871';
+ctx.lineWidth = 4;
+ctx.font =  "24px Inter";
+
+
+
 function addWord() {
-    const newWord = inputNewWord.value;
-    const newCategory = inputCategory.value;
-  
-    console.log(newWord, newCategory);
+    const newWordObject = {nome: inputNewWord.value, categoria: inputCategory.value};
+    console.log(newWordObject);
+    wordsForGame.push(newWordObject);
+    
     window.location.replace("./game.html");
 }
 
