@@ -212,7 +212,8 @@ body.addEventListener("click", function (e) {
 });
 
 input.addEventListener("input", function (e) {
-  let typedLetters = e.target.value.split(""); //Retorna um array com as letras digitadas
+ // let valor = e.target.value.replace(/[^a-zA-Z]/g, ""); //Remove qualquer caracter que não seja letra
+  let typedLetters = e.target.value.replace(/[^a-zA-Z]/g, "").split(''); //Retorna um array com as letras digitadas
   let lastLetter = typedLetters[typedLetters.length - 1]; //Pega a ultima letra digitada
 
   if (attemptsLetters.find((letter) => letter === lastLetter)) {
