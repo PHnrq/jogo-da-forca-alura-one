@@ -1,4 +1,5 @@
 //Lista da palavras
+
 let gameWords = [
   { name: "Cachorro", category: "Animal" },
   { name: "Gato", category: "Animal" },
@@ -40,6 +41,7 @@ const spanWrongLetters = document.querySelector("#wrongLetters");
 const spanTip = document.querySelector("#tip");
 const winnerModal = document.querySelector("#winnerModal");
 const looseModal = document.querySelector("#looseModal");
+const championsModal = document.querySelector("#championsModal");
 const looserMsg = document.querySelector("#looserMsg");
 const score = document.querySelector("#score");
 //elementos do new-word.html
@@ -104,7 +106,11 @@ function isLetterRight() {
     setTimeout(function () {
       updateScore += 10;
       score.innerHTML = `Pontuação: ${updateScore}`;
-      winnerModal.classList.remove("hidden");
+      if(gameWords.length < 1){
+        championsModal.classList.remove("hidden");
+      }else{
+        winnerModal.classList.remove("hidden");
+      }
     }, 50);
   }
 }
@@ -136,6 +142,7 @@ function setRandomWord() {
   categoryDrawn = randomCategory.toUpperCase(); //Pega a categoria e transforma em maiuscula
   winnerModal.classList.add("hidden"); //Esconde o modal de vitória
   looseModal.classList.add("hidden"); //Esconde o modal de derrota
+  championsModal.classList.add("hidden"); //Esconde o modal de campeão
   erros = 0; //Zera o contador de erros
   attemptsLetters = []; //Zera a lista de letras que já foram tentadas
   wrongLetters = []; //Zera a lista de letras erradas
@@ -143,6 +150,8 @@ function setRandomWord() {
   rightLetters = 0; //Zera o contador de letras certas
   spanWrongLetters.innerHTML = ""; //Limpa da tela a lista de letras erradas
 
+  gameWords.splice(gameWords.indexOf(randomObject), 1); //Remove o objeto da lista
+  
   drawLinesAndWords();
 }
 
