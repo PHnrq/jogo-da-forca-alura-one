@@ -43,6 +43,7 @@ const looseModal = document.querySelector("#looseModal");
 const looserMsg = document.querySelector("#looserMsg");
 const score = document.querySelector("#score");
 //elementos do new-word.html
+const validateForm = document.querySelector("#validateForm");
 const inputNewWord = document.querySelector("#newWord");
 const inputCategory = document.querySelector("#category");
 
@@ -54,6 +55,7 @@ let updateScore = 0;
 let erros = 0;
 let attemptsLetters = [];
 let wrongLetters = [];
+let newWord = { name: "", category: ""};
 
 //Configurações do canvas
 const canvas = document.getElementById("canvas");
@@ -64,10 +66,17 @@ ctx.lineWidth = 4;
 ctx.font = "24px Inter";
 
 function addWord() {
-  const newWord = { name: inputNewWord.value, category: inputCategory.value };
-  gameWords.push(newWord);
+  newWord.name = inputNewWord.value;
+  newWord.category = inputCategory.value;
 
-  window.location.replace("./game.html"); //Direciona para o game.html
+  if (newWord.name.length < 1 || newWord.category.length < 1){
+    validateForm.innerHTML = "Preencha todos os campos!";
+  }else if(gameWords.some((word) => word.name === newWord.name)){
+    validateForm.innerHTML = "Palavra já cadastrada!";
+  }else{
+    gameWords.push(newWord);
+    window.location.replace("./game.html"); //Direciona para o game.html
+  }
 }
 
 function drawLinesAndWords() {

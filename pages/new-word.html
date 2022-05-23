@@ -17,6 +17,8 @@
 
     <main class="flex justify-center items-center flex-col gap-4 px-4">
 
+     
+
       <label for="newWord" class="absolute -top-5">Adicionar nova palavra</label>
       <input
         name="newWord"
@@ -35,7 +37,9 @@
       >
 
       <div class="flex flex-col gap-6 mt-10">
-        <span class="flex gap-2 text-xs justify-start items-center mx-4">
+        <span id="validateForm" class="text-base font-semibold text-red-500"></span>
+
+        <span class="flex gap-2 text-xs justify-start items-center mx-2">
           <img src="../assets/bi_exclamation-circle-fill.svg" alt="Circulo com exclamação"/>
           Palavra no máx. de 8 letras
         </span>
