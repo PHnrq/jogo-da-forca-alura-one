@@ -7,15 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="bg-[#E5E5E5]" onload="setRandomWord()">
-    <header class="py-6 px-4">
+  <body class="bg-[#E5E5E5] h-[100vh] flex flex-col justify-between" onload="setRandomWord()">
+    <header class="py-6 px-4 basis-[15%]">
       <img src="../assets/logo-alura.svg" alt="Logo da Alura" />
       <h1 class="absolute -top-10">
         Jogo da Forca  
       </h1>
     </header>
     
-    <main class="px-4 flex justify-center items-center flex-col">
+    <main class="px-4 py-2 flex justify-center items-center flex-col basis-[80%]">
       <label for="showKeyboard" class="absolute -top-10">Digite as letras</label>
       <input id="showKeyboard" type="text" class="absolute -left-[110vw]" />
       
@@ -100,9 +100,33 @@
           </a>
         </div>
       </div>
-
-
     </main>
+
+    <footer class="basis-[5%] flex justify-between px-4">
+      
+      <p class="text-center text-gray-700">
+        Desenvolvido por Paulo Figuerêdo
+      </p>
+
+      <div class="flex gap-1 align-center">
+        <a 
+          href="https://www.linkedin.com/in/paulo-figueredo/" 
+          class="hover:cursor-pointer"
+          target="_blank"
+        >
+          <img src="../assets/linkedin-logo.png" width="32px" alt="LinkedIn" class="hover:opacity-80" />
+        </a>
+      
+      <a 
+      href="https://github.com/PHnrq" 
+      class="hover:cursor-pointer"
+      target="_blank"
+      >
+        <img src="../assets/github-logo.png" width="28px" alt="GitHub" class="hover:opacity-80"/>
+      </a>
+      </div>
+
+    </footer>
 
     <script src="../script.js"></script>
   </body>
