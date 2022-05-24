@@ -68,15 +68,13 @@ ctx.lineWidth = 4;
 ctx.font = "24px Inter";
 
 function addWord() {
-  newWord.name = inputNewWord.value;
-  newWord.category = inputCategory.value;
-
-  if (newWord.name.length < 1 || newWord.category.length < 1){
+  if (inputNewWord.value.length < 1 || inputCategory.value.length < 1){
     validateForm.innerHTML = "Preencha todos os campos!";
-  }else if(gameWords.some((word) => word.name === newWord.name)){
+  }else if(gameWords.some((word) => word.name === inputNewWord.value)){
     validateForm.innerHTML = "Palavra já cadastrada!";
   }else{
-    gameWords.push(newWord);
+    localStorage.setItem("name", inputNewWord.value);
+    localStorage.setItem("category", inputCategory.value);
     window.location.replace("./game.html"); //Direciona para o game.html
   }
 }
@@ -132,6 +130,14 @@ function isLetterWrong() {
 }
 
 function setRandomWord() {
+  if(localStorage.getItem("name") != null && localStorage.getItem("category") != null){
+    newWord.name = localStorage.getItem("name");
+    newWord.category = localStorage.getItem("category");
+
+    localStorage.clear();
+    gameWords.push(newWord);
+  }
+
   const randomObject = gameWords[Math.floor(Math.random() * gameWords.length)]; //Pega um objeto aleatorio da lista
   const randomWord = randomObject.name; //Pega a palavra do objeto
   const randomCategory = randomObject.category; //Pega a categoria do objeto
@@ -152,6 +158,7 @@ function setRandomWord() {
 
   gameWords.splice(gameWords.indexOf(randomObject), 1); //Remove o objeto da lista
   
+  console.log(gameWords);
   drawLinesAndWords();
 }
 
